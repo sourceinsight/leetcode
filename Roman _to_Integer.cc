@@ -79,14 +79,14 @@ public:
     	
     	for (int i = 1; i < s.size(); i++)
     	{
-      	if (m_map(s[i]) <= m_map(s[i-1]))
-      	{
-      		result += m_map(s[i]);
-      	}
-      	else
-      	{
-      		result += m_map(s[i]) - 2 * m_map(s[i-1]);
-      	}
+          	if (m_map(s[i]) <= m_map(s[i-1]))
+          	{
+          		result += m_map(s[i]);
+          	}
+          	else
+          	{
+          		result += m_map(s[i]) - 2 * m_map(s[i-1]);
+          	}
     	}
     	
     	return result;
