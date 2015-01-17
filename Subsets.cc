@@ -22,6 +22,7 @@ If S = [1,2,3], a solution is:
 class Solution 
 {
 public:
+/*
     vector<vector<int> > subsets(vector<int> &S) 
     {
         sort(S.begin(), S.end()); // 输出要求有序
@@ -44,5 +45,28 @@ private:
         path.push_back(S[level]);
         subsets(S, path, level + 1, result);
         path.pop_back();
+    }
+  */
+    vector<vector<int> > subsets(vector<int> &S) 
+    {
+        sort(S.begin(),S.end());
+        vector<vector<int> > result;
+        vector<int> path;
+        
+        dfs(S, result, path, 0);
+        
+        return result;
+    }
+private:
+    // 增量构造
+    void dfs(vector<int>& S, vector<vector<int> >& result, vector<int>& path, int step)
+    {
+        result.push_back(path);
+        for (int i = step; i < S.size(); i++)
+        {
+            path.push_back(S[i]);
+            dfs(S, result, path, i+1);
+            path.pop_back();
+        }
     }
 };
