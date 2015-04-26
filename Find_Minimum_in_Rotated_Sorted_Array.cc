@@ -21,6 +21,7 @@ public:
         int right = size - 1;
         int mid;
         
+        // 画一下，就知道，最终状态是left与right重合
         while (left < right)
         {
             mid = (left + right) / 2;
@@ -30,10 +31,37 @@ public:
             }
             else if (num[mid] < num[right])
             {
-                right = mid; // mid不能-1,因为mid可能是那个最小值
+                right = mid; 
             }
         }
         
-        return num[left]; // 注意是left,而不是mid,因为只有一个元素时mid没有赋值。
+        return num[left]; // 或num[right] 但不是mid，如果用mid，见下面方式
+    }
+
+    int findMin_2(vector<int> &num) 
+    {
+        if (num.empty())
+            return 0;
+            
+        int size = num.size();
+        int left = 0;
+        int right = size - 1;
+        int mid = (left + right) / 2;
+
+        while (left < right)
+        {
+            mid = (left + right) / 2;
+            if (num[mid] > num[right])
+            {
+                left = mid + 1; // mid不可能为最小了，所以+1
+            }
+            else if (num[mid] < num[right])
+            {
+                right = mid;
+            }
+        }
+        mid = (left + right) / 2;
+        
+        return num[mid]; 
     }
 };
