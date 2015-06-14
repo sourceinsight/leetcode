@@ -9,6 +9,21 @@ class Solution
 public:
     bool containsDuplicate(vector<int>& nums) 
     {
+        unordered_map<int, int> mapping;
+        
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (mapping.find(nums[i]) != mapping.end())
+                return true;
+                
+            mapping[nums[i]] = i; 
+        }
+        
+        return false;
+    }
+/*
+    bool containsDuplicate(vector<int>& nums) 
+    {
         if (nums.size() <= 0)
             return false;
             
@@ -26,4 +41,5 @@ public:
         
         return false;
     }
+*/
 };
