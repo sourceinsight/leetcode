@@ -6,16 +6,16 @@ such that nums[i] = nums[j] and the absolute difference between i and j is at mo
 */
 
 func containsNearbyDuplicate(nums []int, k int) bool {
-    m := make(map[int]int) // 值->索引
+	m := make(map[int]int) // 值->索引
 
-    for i, n := range nums {
-        if _, ok := m[n]; ok {
-            if i - m[n] <= k {
-                return true
-            }
-        }
-        m[n] = i // 不是else分支
-    }
+	for i, n := range nums {
+		if _, ok := m[n]; ok {
+			if i-m[n] <= k {
+				return true
+			}
+		}
+		m[n] = i // 不是else分支
+	}
 
-    return false
+	return false
 }

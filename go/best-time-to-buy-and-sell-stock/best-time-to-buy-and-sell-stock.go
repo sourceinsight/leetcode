@@ -19,22 +19,22 @@ In this case, no transaction is done, i.e. max profit = 0.
 */
 
 func maxProfit(prices []int) int {
-    if len(prices) == 0 {
-        return 0
-    }
+	if len(prices) == 0 {
+		return 0
+	}
 
-    max, delta, low := 0, 0, prices[0]
+	max, delta, low := 0, 0, prices[0]
 
-    for i := 1; i < len(prices); i++ {
-        delta = prices[i] - low
-        if delta <= 0 { // 说明prices[i]比low小，那么由于要在i后面卖出，则在i处买入更划算
-            low = prices[i] // 重新开始
-        }
+	for i := 1; i < len(prices); i++ {
+		delta = prices[i] - low
+		if delta <= 0 { // 说明prices[i]比low小，那么由于要在i后面卖出，则在i处买入更划算
+			low = prices[i] // 重新开始
+		}
 
-        if delta > max {
-            max = delta
-        }
-    }
+		if delta > max {
+			max = delta
+		}
+	}
 
-    return max
+	return max
 }

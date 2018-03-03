@@ -38,21 +38,20 @@ Input:     1         1
 Output: false
 */
 
-
 type TreeNode = util.TreeNode
 
 func isSameTree(p *TreeNode, q *TreeNode) bool {
-    if p == nil && q == nil {
-        return true
-    }
+	if p == nil && q == nil {
+		return true
+	}
 
-    if p == nil || q == nil {
-        return false
-    }
+	if p == nil || q == nil {
+		return false
+	}
 
-    return p.Val == q.Val && isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
+	return p.Val == q.Val && isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
 }
 
 var (
-    IsSameTree = isSameTree
+	IsSameTree = isSameTree
 )

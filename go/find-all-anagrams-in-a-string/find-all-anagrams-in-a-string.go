@@ -38,28 +38,28 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 
 // 简单粗暴的方法
 func findAnagrams(s string, p string) []int {
-    result := []int{}
+	result := []int{}
 
-    if len(s) ==0 || len(p) == 0 || len(s) < len(p) {
-        return result
-    }
+	if len(s) == 0 || len(p) == 0 || len(s) < len(p) {
+		return result
+	}
 
-    chars := [26]int{}
-    for _, c := range p {
-        chars[c-'a']++
-    }
-    length := len(p)
+	chars := [26]int{}
+	for _, c := range p {
+		chars[c-'a']++
+	}
+	length := len(p)
 
-    for i := 0; i < len(s)-length+1; i++ {
-        window := [26]int{}
-        // 从i开始的length个
-        for j := i; j < i+length; j++ {
-            window[s[j]-'a']++
-        }
-        if window == chars {  // 数组可以直接比较，slice要用reflect.DeepEqual
-            result = append(result, i)
-        }
-    }
+	for i := 0; i < len(s)-length+1; i++ {
+		window := [26]int{}
+		// 从i开始的length个
+		for j := i; j < i+length; j++ {
+			window[s[j]-'a']++
+		}
+		if window == chars { // 数组可以直接比较，slice要用reflect.DeepEqual
+			result = append(result, i)
+		}
+	}
 
-    return result
+	return result
 }

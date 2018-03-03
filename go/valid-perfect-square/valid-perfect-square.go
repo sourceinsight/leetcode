@@ -20,29 +20,29 @@ Returns: False
 
 // 二分法
 func isPerfectSquare(num int) bool {
-    low, high := 1, num
-    var mid int
+	low, high := 1, num
+	var mid int
 
-    for low <= high {
-        mid = (high-low)/2 + low
-        if mid*mid == num {
-            return true
-        } else if mid*mid < num {
-            low = mid + 1
-        } else {
-            high = mid - 1
-        }
-    }
+	for low <= high {
+		mid = (high-low)/2 + low
+		if mid*mid == num {
+			return true
+		} else if mid*mid < num {
+			low = mid + 1
+		} else {
+			high = mid - 1
+		}
+	}
 
-    return false
+	return false
 }
 
 // 牛顿迭代 https://www.zhihu.com/question/41881138
 func isPerfectSquare2(num int) bool {
-    x := num
-    for x*x > num {
-        x = (x + num/x) / 2
-    }
+	x := num
+	for x*x > num {
+		x = (x + num/x) / 2
+	}
 
-    return x*x == num
+	return x*x == num
 }

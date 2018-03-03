@@ -30,28 +30,27 @@ Explanation:  There are three ways to climb to the top.
 
 // 直观，但超时了。不推荐
 func climbStairs(n int) int {
-    if n == 1 {
-        return 1
-    } else if n == 2 {
-        return 2
-    }
+	if n == 1 {
+		return 1
+	} else if n == 2 {
+		return 2
+	}
 
-    return climbStairs(n) + climbStairs(n-1)
+	return climbStairs(n) + climbStairs(n-1)
 }
 
 // 利用了中间计算结果
 func climbStairs2(n int) int {
-    if n == 1 {
-        return 1
-    }
+	if n == 1 {
+		return 1
+	}
 
-    ways := make([]int, n+1)
-    ways[0], ways[1] = 1, 1
+	ways := make([]int, n+1)
+	ways[0], ways[1] = 1, 1
 
-    for i := 2; i <= n; i++ {
-        ways[i] = ways[i-1] + ways[i-2]
-    }
+	for i := 2; i <= n; i++ {
+		ways[i] = ways[i-1] + ways[i-2]
+	}
 
-    return ways[n]
+	return ways[n]
 }
-

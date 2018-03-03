@@ -1,8 +1,8 @@
 package convert_sorted_list_to_binary_search_tree
 
 import (
-    "../util"
-    "../convert-sorted-array-to-binary-search-tree"
+	"../convert-sorted-array-to-binary-search-tree"
+	"../util"
 )
 
 /*
@@ -31,14 +31,13 @@ type TreeNode = util.TreeNode
 
 // 一种方法直接链表变数组，然后利用convert-sorted-array-to-binary-search-tree.go
 func sortedListToBST(head *ListNode) *TreeNode {
-    arr := []int{}
-    for head != nil {
-        arr = append(arr, head.Val)
-        head = head.Next
-    }
+	arr := []int{}
+	for head != nil {
+		arr = append(arr, head.Val)
+		head = head.Next
+	}
 
-    return convert_sorted_array_to_binary_search_tree.SortedArrayToBST(arr)
+	return convert_sorted_array_to_binary_search_tree.SortedArrayToBST(arr)
 }
 
 // 方法2： 找到中间位置，一个slow,一个fast， slow走一步，fast走两步
-

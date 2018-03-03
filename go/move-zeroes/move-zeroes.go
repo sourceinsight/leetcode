@@ -14,26 +14,26 @@ Minimize the total number of operations.
 
 // 原地倒腾，非零的都赋值到前面  操作len(nums)次
 func moveZeroes(nums []int) {
-    index := 0 // 新的索引
-    for _, n := range nums {
-        if n != 0 {
-            nums[index] = n
-            index++
-        }
-    }
+	index := 0 // 新的索引
+	for _, n := range nums {
+		if n != 0 {
+			nums[index] = n
+			index++
+		}
+	}
 
-    for j := index; j < len(nums); j++ {
-        nums[j] = 0
-    }
+	for j := index; j < len(nums); j++ {
+		nums[j] = 0
+	}
 }
 
 // 原地交换   操作 2*非零个数 次，所以非零很少的情况下才用此法
 func moveZeroes(nums []int) {
-    index := 0 // 新的非零索引，指向目前第一个零的位置
-    for i, n := range nums {
-        if n != 0 {
-            nums[index], nums[i] = nums[i], nums[index]
-            index++
-        }
-    }
+	index := 0 // 新的非零索引，指向目前第一个零的位置
+	for i, n := range nums {
+		if n != 0 {
+			nums[index], nums[i] = nums[i], nums[index]
+			index++
+		}
+	}
 }

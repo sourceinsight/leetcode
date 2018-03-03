@@ -1,8 +1,8 @@
 package subtree_of_another_tree
 
 import (
-    "../util"
-    "../same-tree"
+	"../same-tree"
+	"../util"
 )
 
 /*
@@ -44,12 +44,12 @@ Return false.
 type TreeNode = util.TreeNode
 
 func isSubtree(s *TreeNode, t *TreeNode) bool {
-    if s == nil {
-        return false
-    }
-    if same_tree.IsSameTree(s,t) {
-        return true
-    }
+	if s == nil {
+		return false
+	}
+	if same_tree.IsSameTree(s, t) {
+		return true
+	}
 
-    return isSubtree(s.Left, t) || isSubtree(s.Right, t)
+	return isSubtree(s.Left, t) || isSubtree(s.Right, t)
 }

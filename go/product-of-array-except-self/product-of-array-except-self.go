@@ -17,21 +17,21 @@ the purpose of space complexity analysis.)
 
 // TODO Time Limit Exceeded???
 func productExceptSelf(nums []int) []int {
-    length := len(nums)
+	length := len(nums)
 
-    // 左侧乘积，右侧乘积
-    left, right := make([]int, length), make([]int, length)
-    left[0], right[length-1] = 1, 1
+	// 左侧乘积，右侧乘积
+	left, right := make([]int, length), make([]int, length)
+	left[0], right[length-1] = 1, 1
 
-    for i := 1; i < length; i++ {
-        left[i] = left[i-1] * nums[i-1]
-        right[length-i-1] = right[length-i] * nums[length-i]
-    }
+	for i := 1; i < length; i++ {
+		left[i] = left[i-1] * nums[i-1]
+		right[length-i-1] = right[length-i] * nums[length-i]
+	}
 
-    result := make([]int, length)
-    for i, _ := range nums {
-        result[i] = left[i] * right[i]
-    }
+	result := make([]int, length)
+	for i, _ := range nums {
+		result[i] = left[i] * right[i]
+	}
 
-    return result
+	return result
 }

@@ -6,5 +6,5 @@ The algorithm should run in linear time and in O(1) space.
 */
 
 func majorityElement(nums []int) []int {
-    return nil
+	return nil
 }

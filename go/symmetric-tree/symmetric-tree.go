@@ -1,7 +1,7 @@
 package symmetric_tree
 
 import (
-    "../util"
+	"../util"
 )
 
 /*
@@ -30,25 +30,25 @@ Bonus points if you could solve it both recursively and iteratively.
 type TreeNode = util.TreeNode
 
 func isSymmetric(root *TreeNode) bool {
-    if root == nil {
-        return true
-    }
+	if root == nil {
+		return true
+	}
 
-    return symmetric(root.Left, root.Right)
+	return symmetric(root.Left, root.Right)
 }
 
 func symmetric(left *TreeNode, right *TreeNode) bool {
-    if left == nil && right == nil {
-        return true
-    }
-    // 只有一个是nil
-    if left == nil || right == nil {
-        return false
-    }
+	if left == nil && right == nil {
+		return true
+	}
+	// 只有一个是nil
+	if left == nil || right == nil {
+		return false
+	}
 
-    if left.Val != right.Val {
-        return false
-    }
+	if left.Val != right.Val {
+		return false
+	}
 
-    return symmetric(left.Left, right.Right) && symmetric(left.Right, right.Left)
+	return symmetric(left.Left, right.Right) && symmetric(left.Right, right.Left)
 }

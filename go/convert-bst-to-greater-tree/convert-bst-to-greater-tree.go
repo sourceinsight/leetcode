@@ -1,7 +1,7 @@
 package convert_bst_to_greater_tree
 
 import (
-    "../util"
+	"../util"
 )
 
 /*
@@ -25,20 +25,20 @@ Output: The root of a Greater Tree like this:
 type TreeNode = util.TreeNode
 
 func convertBST(root *TreeNode) *TreeNode {
-    sum := 0
+	sum := 0
 
-    travel(root, &sum)
-    return root
+	travel(root, &sum)
+	return root
 }
 
 // 右-中-左 遍历
 func travel(root *TreeNode, sum *int) {
-    if root == nil {
-        return
-    }
+	if root == nil {
+		return
+	}
 
-    travel(root.Right, sum)
-    root.Val += *sum
-    *sum = root.Val
-    travel(root.Left, sum)
+	travel(root.Right, sum)
+	root.Val += *sum
+	*sum = root.Val
+	travel(root.Left, sum)
 }

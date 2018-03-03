@@ -6,14 +6,14 @@ appears at least twice in the array, and it should return false if every element
 */
 
 func containsDuplicate(nums []int) bool {
-    m := make(map[int]bool, len(nums))
+	m := make(map[int]bool, len(nums))
 
-    for _, n := range nums {
-        if m[n] {
-            return true
-        }
-        m[n] = true
-    }
+	for _, n := range nums {
+		if m[n] {
+			return true
+		}
+		m[n] = true
+	}
 
-    return false
+	return false
 }

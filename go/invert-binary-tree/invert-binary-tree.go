@@ -22,17 +22,17 @@ but you can’t invert a binary tree on a whiteboard so fuck off.
 // 问题：翻转二叉树
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func invertTree(root *TreeNode) *TreeNode {
-    if root == nil {
-        return root
-    }
+	if root == nil {
+		return root
+	}
 
-    root.Left, root.Right = invertTree(root.Right), invertTree(root.Left)
+	root.Left, root.Right = invertTree(root.Right), invertTree(root.Left)
 
-    return root
+	return root
 }

@@ -1,7 +1,7 @@
 package path_sum_ii
 
 import (
-    "../util"
+	"../util"
 )
 
 /*
@@ -27,17 +27,17 @@ return
 type TreeNode = util.TreeNode
 
 func pathSum(root *TreeNode, sum int) [][]int {
-    result := make([][]int, 0, 64)
-    path := make([]int, 0, 64)
-    dfs(root, sum, path, &result)
-    return result
+	result := make([][]int, 0, 64)
+	path := make([]int, 0, 64)
+	dfs(root, sum, path, &result)
+	return result
 }
 
 func pathSum2(root *TreeNode, sum int) [][]int {
-    result := make([][]int, 0, 64)
-    path := make([]int, 0, 64)
-    dfs2(root, sum, &path, &result)
-    return result
+	result := make([][]int, 0, 64)
+	path := make([]int, 0, 64)
+	dfs2(root, sum, &path, &result)
+	return result
 }
 
 // c++和golang差别还是很大的。c++有引用
@@ -48,48 +48,48 @@ func pathSum2(root *TreeNode, sum int) [][]int {
 // 理解一下slice, https://jiajunhuang.com/articles/2017_07_18-golang_slice.md.html
 
 func dfs(root *TreeNode, sum int, path []int, result *[][]int) {
-    if root == nil {
-        return
-    }
+	if root == nil {
+		return
+	}
 
-    sum -= root.Val
-    path = append(path, root.Val)
-    if root.Left == nil && root.Right == nil {
-        if sum == 0 {
-            tmp := make([]int, len(path))
-            copy(tmp, path)
-            *result = append(*result, tmp)
-        }
-        return
-    }
+	sum -= root.Val
+	path = append(path, root.Val)
+	if root.Left == nil && root.Right == nil {
+		if sum == 0 {
+			tmp := make([]int, len(path))
+			copy(tmp, path)
+			*result = append(*result, tmp)
+		}
+		return
+	}
 
-    dfs(root.Left, sum, path, result)
-    dfs(root.Right, sum, path, result)
+	dfs(root.Left, sum, path, result)
+	dfs(root.Right, sum, path, result)
 
-    return
+	return
 }
 
 func dfs2(root *TreeNode, sum int, path *[]int, result *[][]int) {
-    if root == nil {
-        return
-    }
+	if root == nil {
+		return
+	}
 
-    sum -= root.Val
-    *path = append(*path, root.Val)
-    if root.Left == nil && root.Right == nil {
-        if sum == 0 {
-            tmp := make([]int, len(*path))
-            copy(tmp, *path)
-            *result = append(*result, tmp)
-        }
-        *path = (*path)[:len(*path)-1] // 回溯。函数退出的时候，删掉root.Val
-        return
-    }
+	sum -= root.Val
+	*path = append(*path, root.Val)
+	if root.Left == nil && root.Right == nil {
+		if sum == 0 {
+			tmp := make([]int, len(*path))
+			copy(tmp, *path)
+			*result = append(*result, tmp)
+		}
+		*path = (*path)[:len(*path)-1] // 回溯。函数退出的时候，删掉root.Val
+		return
+	}
 
-    dfs2(root.Left, sum, path, result)
-    dfs2(root.Right, sum, path, result)
+	dfs2(root.Left, sum, path, result)
+	dfs2(root.Right, sum, path, result)
 
-    *path = (*path)[:len(*path)-1] // 回溯。函数退出的时候，删掉root.Val
+	*path = (*path)[:len(*path)-1] // 回溯。函数退出的时候，删掉root.Val
 
-    return
+	return
 }

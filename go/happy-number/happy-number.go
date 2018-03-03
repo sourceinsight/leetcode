@@ -18,30 +18,30 @@ Example: 19 is a happy number
 */
 
 func isHappy(n int) bool {
-    m := make(map[int]struct{})
-    m[n] = struct{}{}
+	m := make(map[int]struct{})
+	m[n] = struct{}{}
 
-    for {
-        n = calc(n)
-        if n == 1 {
-            return true
-        }
+	for {
+		n = calc(n)
+		if n == 1 {
+			return true
+		}
 
-        // 如果在一个没有1的循环中，那么第二次循环的时候一定已经在里面了
-        if _, ok := m[n]; ok {
-            return false
-        }
-        m[n] = struct{}{}
-    }
+		// 如果在一个没有1的循环中，那么第二次循环的时候一定已经在里面了
+		if _, ok := m[n]; ok {
+			return false
+		}
+		m[n] = struct{}{}
+	}
 
-    return false
+	return false
 }
 
 func calc(n int) int {
-    result := 0
-    for n != 0 {
-        result += (n % 10) * (n % 10)
-        n /= 10
-    }
-    return result
+	result := 0
+	for n != 0 {
+		result += (n % 10) * (n % 10)
+		n /= 10
+	}
+	return result
 }

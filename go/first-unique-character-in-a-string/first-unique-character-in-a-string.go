@@ -15,31 +15,31 @@ Note: You may assume the string contain only lowercase letters.
 */
 
 func firstUniqChar(s string) int {
-    rec := make([]rune, 26)
-    for _, c := range s {
-        rec[c-'a']++
-    }
+	rec := make([]rune, 26)
+	for _, c := range s {
+		rec[c-'a']++
+	}
 
-    for i, c := range s {
-        if rec[c-'a'] == 1 {
-            return i
-        }
-    }
+	for i, c := range s {
+		if rec[c-'a'] == 1 {
+			return i
+		}
+	}
 
-    return -1
+	return -1
 }
 
 func firstUniqChar2(s string) int {
-    m := make(map[rune]int, len(s))
-    for _, c := range s {
-        m[c] += 1
-    }
+	m := make(map[rune]int, len(s))
+	for _, c := range s {
+		m[c] += 1
+	}
 
-    for i, c := range s {
-        if m[c] == 1 {
-            return i
-        }
-    }
+	for i, c := range s {
+		if m[c] == 1 {
+			return i
+		}
+	}
 
-    return -1
+	return -1
 }

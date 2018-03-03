@@ -15,16 +15,15 @@ Given nums = [3,2,2,3], val = 3,
 Your function should return length = 2, with the first two elements of nums being 2.
 */
 
-
 func removeElement(nums []int, val int) int {
-    index := 0
+	index := 0
 
-    for _, n := range nums{
-        if n != val {
-            nums[index] = n
-            index++
-        }
-    }
+	for _, n := range nums {
+		if n != val {
+			nums[index] = n
+			index++
+		}
+	}
 
-    return index
+	return index
 }

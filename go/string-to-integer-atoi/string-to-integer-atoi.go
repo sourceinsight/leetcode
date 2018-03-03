@@ -1,8 +1,8 @@
 package string_to_integer_atoi
 
 import (
-    "math"
-    "strings"
+	"math"
+	"strings"
 )
 
 /*
@@ -31,33 +31,33 @@ or INT_MIN (-2147483648) is returned.
 */
 
 func myAtoi(str string) int {
-    // 去首尾空格
-    str = strings.TrimSpace(str)
-    if len(str) == 0 {
-        return 0
-    }
+	// 去首尾空格
+	str = strings.TrimSpace(str)
+	if len(str) == 0 {
+		return 0
+	}
 
-    sign := 1
-    switch str[0] {
-    case '-':
-        sign = -1
-        str = str[1:]
-    case '+':
-        str = str[1:]
-    }
+	sign := 1
+	switch str[0] {
+	case '-':
+		sign = -1
+		str = str[1:]
+	case '+':
+		str = str[1:]
+	}
 
-    result := 0
-    for _, n := range []byte(str) {
-        if n < '0' || n > '9' { // 遇到非0~9则终止
-            break
-        }
-        result = result*10 + int(n) - 48 // n - '0'
-        if sign*result >= math.MaxInt32 {
-            return math.MaxInt32
-        } else if sign*result <= math.MinInt32 {
-            return math.MinInt32
-        }
-    }
+	result := 0
+	for _, n := range []byte(str) {
+		if n < '0' || n > '9' { // 遇到非0~9则终止
+			break
+		}
+		result = result*10 + int(n) - 48 // n - '0'
+		if sign*result >= math.MaxInt32 {
+			return math.MaxInt32
+		} else if sign*result <= math.MinInt32 {
+			return math.MinInt32
+		}
+	}
 
-    return sign * result
+	return sign * result
 }

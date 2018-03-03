@@ -14,7 +14,7 @@ You are not suppose to use the library's sort function for this problem.
 
 // 1 0 0 2 1 2
 func sortColors(nums []int) {
-	left := 0 // 0后面的1的位置  001122  left=2 right=3
+	left := 0              // 0后面的1的位置  001122  left=2 right=3
 	right := len(nums) - 1 // 2前面1的位置
 	index := 0
 

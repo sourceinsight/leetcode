@@ -1,7 +1,7 @@
 package convert_sorted_array_to_binary_search_tree
 
 import (
-    "../util"
+	"../util"
 )
 
 /*
@@ -27,14 +27,14 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 type TreeNode = util.TreeNode
 
 func SortedArrayToBST(nums []int) *TreeNode {
-    if len(nums) == 0 {
-        return nil
-    }
+	if len(nums) == 0 {
+		return nil
+	}
 
-    mid := len(nums)/2
-    return &TreeNode{
-        nums[mid],
-        SortedArrayToBST(nums[:mid]),
-        SortedArrayToBST(nums[mid+1:]),
-    }
+	mid := len(nums) / 2
+	return &TreeNode{
+		nums[mid],
+		SortedArrayToBST(nums[:mid]),
+		SortedArrayToBST(nums[mid+1:]),
+	}
 }

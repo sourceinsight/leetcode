@@ -9,35 +9,35 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 
 // 栈的典型应用
 func isValid(s string) bool {
-    bs := []byte(s)
-    stack := make([]byte, 0, len(bs))
+	bs := []byte(s)
+	stack := make([]byte, 0, len(bs))
 
-    for _, b := range bs {
-        switch b {
-        case '(', '{', '[':
-            stack = append(stack, b)
-        case ')', '}', ']':
-            if len(stack) == 0 {
-                return false
-            }
+	for _, b := range bs {
+		switch b {
+		case '(', '{', '[':
+			stack = append(stack, b)
+		case ')', '}', ']':
+			if len(stack) == 0 {
+				return false
+			}
 
-            if match(stack[len(stack)-1], b) {
-                stack = stack[:len(stack)-1]
-            } else {
-                stack = append(stack, b)
-            }
-        }
-    }
+			if match(stack[len(stack)-1], b) {
+				stack = stack[:len(stack)-1]
+			} else {
+				stack = append(stack, b)
+			}
+		}
+	}
 
-    if len(stack) > 0 {
-        return false
-    }
-    return true
+	if len(stack) > 0 {
+		return false
+	}
+	return true
 }
 
 func match(a, b byte) bool {
-    if a == '(' && b == ')' || a == '{' && b == '}' || a == '[' && b == ']' {
-        return true
-    }
-    return false
+	if a == '(' && b == ')' || a == '{' && b == '}' || a == '[' && b == ']' {
+		return true
+	}
+	return false
 }

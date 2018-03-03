@@ -19,18 +19,18 @@ Output:
 */
 
 func findDisappearedNumbers(nums []int) []int {
-    for i := 0; i < len(nums); i++ {
-        for nums[i] != nums[nums[i]-1] { // nums[i]-1是它该在的位置
-            nums[i], nums[nums[i]-1] = nums[nums[i]-1], nums[i]
-        }
-    }
+	for i := 0; i < len(nums); i++ {
+		for nums[i] != nums[nums[i]-1] { // nums[i]-1是它该在的位置
+			nums[i], nums[nums[i]-1] = nums[nums[i]-1], nums[i]
+		}
+	}
 
-    result := make([]int, 0, len(nums))
-    for i, n := range nums {
-        if n != i+1 {
-            result = append(result, i+1)
-        }
-    }
+	result := make([]int, 0, len(nums))
+	for i, n := range nums {
+		if n != i+1 {
+			result = append(result, i+1)
+		}
+	}
 
-    return result
+	return result
 }

@@ -1,7 +1,7 @@
 package path_sum_iii
 
 import (
-    "../util"
+	"../util"
 )
 
 /*
@@ -39,26 +39,26 @@ type TreeNode = util.TreeNode
 // 1 是dfs，找sum
 // 2 是从任意节点开始
 func pathSum(root *TreeNode, sum int) int {
-    if root == nil {
-        return 0
-    }
-    return dfs(root, sum) + pathSum(root.Left, sum) + pathSum(root.Right, sum)
+	if root == nil {
+		return 0
+	}
+	return dfs(root, sum) + pathSum(root.Left, sum) + pathSum(root.Right, sum)
 }
 
 func dfs(root *TreeNode, sum int) int {
-    if root == nil {
-        return 0
-    }
+	if root == nil {
+		return 0
+	}
 
-    cnt := 0
+	cnt := 0
 
-    sum -= root.Val
-    if sum == 0 {
-        cnt++
-    }
+	sum -= root.Val
+	if sum == 0 {
+		cnt++
+	}
 
-    cnt += dfs(root.Left, sum)
-    cnt += dfs(root.Right, sum)
+	cnt += dfs(root.Left, sum)
+	cnt += dfs(root.Right, sum)
 
-    return cnt
+	return cnt
 }
